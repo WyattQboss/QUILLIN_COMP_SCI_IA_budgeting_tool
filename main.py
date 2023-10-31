@@ -1,5 +1,5 @@
 import csv
-
+import tkinter
 # expense fields
 fields = ['Expense Name', 'Frequency', 'Cost', 'Category']
 
@@ -35,9 +35,31 @@ with open(filename, 'r') as csvfile:
 #I took this from the geeksforgeeks code
 print('Field names are:' + ', '.join(field for field in fields))
 
-print('\nFirst 6 rows are:\n')
-for row in rows[:6]:
+
+for row in rows:
     for col in row:
-        print("%10s" % col, end=" "),
+        print(col)
     print('\n')
 
+# build GUI that populates from the CSV file. Focus on text box creation from CSV file.
+
+from tkinter import *
+master = Tk()
+master.config()
+Label(master, text='Expense Name').grid(row=0)
+Label(master, text='Frequency').grid(row=1)
+Label(master, text='Cost').grid(row=2)
+Label(master, text='Category').grid(row=3)
+e1 = Entry(master)
+e2 = Entry(master)
+e3 = Entry(master)
+e4 = Entry(master)
+e1.grid(row=0, column=1)
+e2.grid(row=1, column=1)
+e3.grid(row=2, column=1)
+e4.grid(row=3, column=1)
+
+
+redbutton = Button(master, text = 'Add Expense', fg ='green')
+redbutton.grid( row=5, column=5)
+mainloop()
