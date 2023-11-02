@@ -46,10 +46,10 @@ for row in rows:
 from tkinter import *
 master = Tk()
 master.config()
-Label(master, text='Expense Name').grid(row=0)
-Label(master, text='Frequency').grid(row=1)
-Label(master, text='Cost').grid(row=2)
-Label(master, text='Category').grid(row=3)
+Box_1 = Label(master, text='Expense Name').grid(row=0)
+Box_2 = Label(master, text='Frequency').grid(row=1)
+Box_3 = Label(master, text='Cost').grid(row=2)
+Box_4 = Label(master, text='Category').grid(row=3)
 e1 = Entry(master)
 e2 = Entry(master)
 e3 = Entry(master)
@@ -60,6 +60,12 @@ e3.grid(row=2, column=1)
 e4.grid(row=3, column=1)
 
 
-redbutton = Button(master, text = 'Add Expense', fg ='green')
+Expense_Name_Entry = tkinter.Entry(master)
+def enter_data():
+    Expense_name = Expense_Name_Entry.get()
+
+print(Expense_Name_Entry)
+redbutton = Button(master, text = 'Add Expense', fg ='green', command = enter_data)
 redbutton.grid( row=5, column=5)
 mainloop()
+
