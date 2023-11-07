@@ -1,46 +1,88 @@
 import csv
 import tkinter
 # expense fields
-fields = ['Expense Name', 'Frequency', 'Cost', 'Category']
+fields_1 = ['Expense Name', 'Frequency', 'Cost', 'Category']
 
-rows = [['Electricity bill', 'Monthly', '400', 'Utility'],
+rows_1 = [['Electricity bill', 'Monthly', '400', 'Utility'],
         ['Car payment', 'Bi-Monthly', '250', 'Vehicle'],
         ['Phone bill', 'Monthly', '147', 'Tech'],
         ['Museum membership', 'Annually', '50', 'Recreation'],
         ['Gym membership', 'Monthly', '35', 'Recreation'],
         ['Spotify bill', 'Monthly', '10', 'Entertainment']]
-
-filename = "repeating_expenses.csv"
+#REPEATING EXPENSES CSV.FILE
+filename_1 = "repeating_expenses.csv"
 
 # writing to the expense file
-with open(filename, 'w') as csvfile:
+with open(filename_1, 'w') as csvfile:
     csvwriter = csv.writer(csvfile)
-    csvwriter.writerow(fields)
-    csvwriter.writerows(rows)
+    csvwriter.writerow(fields_1)
+    csvwriter.writerows(rows_1)
 
 
-filename = "repeating_expenses.csv"
+filename_1 = "repeating_expenses.csv"
 
 
-fields = []
-rows = []
+fields_1 = []
+rows_1 = []
 #reading the expense file
-with open(filename, 'r') as csvfile:
+with open(filename_1, 'r') as csvfile:
     csvreader = csv.reader(csvfile)
     fields = next(csvreader)
     for row in csvreader:
-        rows.append(row)
+        rows_1.append(row)
     print("Total no. of rows: %d" % (csvreader.line_num))
 
 #I took this from the geeksforgeeks code
 print('Field names are:' + ', '.join(field for field in fields))
 
 
-for row in rows:
+for row in rows_1:
     for col in row:
         print(col)
     print('\n')
 
+
+#OTHER EXPENSES CSV>FILE
+
+fields_2 = ['Expense Name', 'Cost', 'Category']
+
+rows_2 = [['Haircut', '20', 'Cosmetic'],
+        ['Ice Cream', '5', 'Food'],
+        ['Uber', '13', 'Transportation'],
+        ['Movie Tickets', '18', 'Recreation'],
+        ['Dinner Date', '35', 'Food'],
+        ['New Keyboard', '90', 'Entertainment']]
+filename_2 = "other_expenses.csv"
+
+# writing to the expense file
+with open(filename_2, 'w') as csvfile:
+    csvwriter = csv.writer(csvfile)
+    csvwriter.writerow(fields_2)
+    csvwriter.writerows(rows_2)
+
+
+filename_2 = "other_expenses.csv"
+
+
+fields_2 = []
+rows_2 = []
+#reading the expense file
+with open(filename_2, 'r') as csvfile:
+    csvreader = csv.reader(csvfile)
+    fields = next(csvreader)
+    for row in csvreader:
+        rows_2.append(row)
+    print("Total no. of rows: %d" % (csvreader.line_num))
+
+#I took this from the geeksforgeeks code
+print('Field names are:' + ', '.join(field for field in fields))
+
+
+for row in rows_2:
+    for col in row:
+        print(col)
+    print('\n')
+'''
 # build GUI that populates from the CSV file. Focus on text box creation from CSV file.
 
 from tkinter import *
@@ -114,4 +156,4 @@ printButton.pack()
 lbl = tk.Label(frame, text="")
 lbl.pack()
 frame.mainloop()
-
+'''
