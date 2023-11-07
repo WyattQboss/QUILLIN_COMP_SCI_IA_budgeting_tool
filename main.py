@@ -69,3 +69,49 @@ redbutton = Button(master, text = 'Add Expense', fg ='green', command = enter_da
 redbutton.grid( row=5, column=5)
 mainloop()
 
+import tkinter as tk
+
+# Top level window
+frame = tk.Tk()
+frame.title("TextBox Input")
+frame.geometry('400x200')
+
+
+# Function for getting Input
+# from textbox and printing it
+# at label widget
+
+def printInput():
+    inp = inputtxt_1.get(1.0, "end-1c")
+    lbl.config(text="Provided Input: " + inp)
+
+    inp = inputtxt_2.get(1.0, "end-1c")
+    lbl.config(text="Provided Input: " + inp)
+
+    inp = inputtxt_3.get(1.0, "end-1c")
+    lbl.config(text="Provided Input: " + inp)
+
+    inp = inputtxt_4.get(1.0, "end-1c")
+    lbl.config(text="Provided Input: " + inp)
+
+
+# TextBox Creation
+inputtxt_1 = tk.Text(frame,height=1,width=20)
+inputtxt_2 = tk.Text(frame,height=1,width=20)
+inputtxt_3 = tk.Text(frame,height=1,width=20)
+inputtxt_4 = tk.Text(frame,height=1,width=20)
+inputtxt_1.pack()
+inputtxt_2.pack()
+inputtxt_3.pack()
+inputtxt_4.pack()
+# Button Creation
+printButton = tk.Button(frame,
+                        text="Print",
+                        command=printInput)
+printButton.pack()
+
+# Label Creation
+lbl = tk.Label(frame, text="")
+lbl.pack()
+frame.mainloop()
+
