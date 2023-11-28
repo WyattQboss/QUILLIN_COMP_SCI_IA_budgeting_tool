@@ -41,6 +41,7 @@ for row in rows_1:
         print(col)
     print('\n')
 
+#Dynamically create a GUI menu from a text file TKINTER
 
 #OTHER EXPENSES CSV>FILE
 
@@ -82,12 +83,15 @@ for row in rows_2:
     for col in row:
         print(col)
     print('\n')
-'''
+
 # build GUI that populates from the CSV file. Focus on text box creation from CSV file.
 
+
+#REPEASTING EXPENSES
 from tkinter import *
 master = Tk()
 master.config()
+master.title("Repeating Expenses")
 Box_1 = Label(master, text='Expense Name').grid(row=0)
 Box_2 = Label(master, text='Frequency').grid(row=1)
 Box_3 = Label(master, text='Cost').grid(row=2)
@@ -102,58 +106,41 @@ e3.grid(row=2, column=1)
 e4.grid(row=3, column=1)
 
 
-Expense_Name_Entry = tkinter.Entry(master)
 def enter_data():
-    Expense_name = Expense_Name_Entry.get()
-
-print(Expense_Name_Entry)
-redbutton = Button(master, text = 'Add Expense', fg ='green', command = enter_data)
-redbutton.grid( row=5, column=5)
+    Expense_name_1 = e1.get()
+    Expense_name_2 = e2.get()
+    Expense_name_3 = e3.get()
+    Expense_name_4 = e4.get()
+    print(Expense_name_1, Expense_name_2, Expense_name_3, Expense_name_4)
+button = Button(master, text = 'Add Expense', fg ='green', command = enter_data)
+button.grid( row=5, column=5)
 mainloop()
 
-import tkinter as tk
-
-# Top level window
-frame = tk.Tk()
-frame.title("TextBox Input")
-frame.geometry('400x200')
 
 
-# Function for getting Input
-# from textbox and printing it
-# at label widget
 
-def printInput():
-    inp = inputtxt_1.get(1.0, "end-1c")
-    lbl.config(text="Provided Input: " + inp)
+#OTHER EXPENSES
+master_0 = Tk()
+master_0.config()
+master_0.title("Other Expenses")
+Box_A = Label(master_0, text='Expense Name').grid(row=0)
+Box_B = Label(master_0, text='Cost').grid(row=1)
+Box_C = Label(master_0, text='Category').grid(row=2)
+w1 = Entry(master_0)
+w2 = Entry(master_0)
+w3 = Entry(master_0)
 
-    inp = inputtxt_2.get(1.0, "end-1c")
-    lbl.config(text="Provided Input: " + inp)
+w1.grid(row=0, column=1)
+w2.grid(row=1, column=1)
+w3.grid(row=2, column=1)
 
-    inp = inputtxt_3.get(1.0, "end-1c")
-    lbl.config(text="Provided Input: " + inp)
+def enter_data():
+    Expense_name_A = w1.get()
+    Expense_name_B = w2.get()
+    Expense_name_C = w3.get()
 
-    inp = inputtxt_4.get(1.0, "end-1c")
-    lbl.config(text="Provided Input: " + inp)
+    print(Expense_name_A, Expense_name_B, Expense_name_C)
+button_0 = Button(master_0, text = 'Add Expense', fg ='green', command = enter_data)
+button_0.grid( row=5, column=5)
+mainloop()
 
-
-# TextBox Creation
-inputtxt_1 = tk.Text(frame,height=1,width=20)
-inputtxt_2 = tk.Text(frame,height=1,width=20)
-inputtxt_3 = tk.Text(frame,height=1,width=20)
-inputtxt_4 = tk.Text(frame,height=1,width=20)
-inputtxt_1.pack()
-inputtxt_2.pack()
-inputtxt_3.pack()
-inputtxt_4.pack()
-# Button Creation
-printButton = tk.Button(frame,
-                        text="Print",
-                        command=printInput)
-printButton.pack()
-
-# Label Creation
-lbl = tk.Label(frame, text="")
-lbl.pack()
-frame.mainloop()
-'''
